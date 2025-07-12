@@ -1,4 +1,3 @@
-// Load existing employees from localStorage or fallback
 let employeeData = JSON.parse(localStorage.getItem("employees")) || employees;
 
 const form = document.getElementById("employeeForm");
@@ -6,7 +5,6 @@ const idField = document.getElementById("empId");
 const query = new URLSearchParams(window.location.search);
 const editId = parseInt(query.get("id"));
 
-// If editing, fill the form
 if (editId) {
   const emp = employeeData.find(e => e.id === editId);
   if (emp) {
@@ -20,7 +18,6 @@ if (editId) {
   }
 }
 
-// Form Submit
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -34,15 +31,12 @@ form.addEventListener("submit", function (e) {
   };
 
   if (editId) {
-    // Update existing
     const index = employeeData.findIndex(e => e.id === editId);
     employeeData[index] = newEmp;
   } else {
-    // Add new
     employeeData.push(newEmp);
   }
 
-  // Save to localStorage
   localStorage.setItem("employees", JSON.stringify(employeeData));
   alert("Employee saved successfully!");
   window.location.href = "index.html";
