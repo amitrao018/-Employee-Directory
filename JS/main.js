@@ -4,10 +4,8 @@ if (!employeeData || employeeData.length === 0) {
   localStorage.setItem("employees", JSON.stringify(employeeData));
 }
 
-// Pagination
 let showCount = 10;
 
-// Render only first N employees
 function renderEmployees(empList) {
   const container = document.getElementById("employeeList");
   container.innerHTML = "";
@@ -36,7 +34,6 @@ function renderEmployees(empList) {
   });
 }
 
-// Delete functionality
 function deleteEmployee(id) {
   const index = employeeData.findIndex(e => e.id === id);
   if (index > -1) {
@@ -48,7 +45,6 @@ function deleteEmployee(id) {
   }
 }
 
-// Search
 document.getElementById("searchInput").addEventListener("input", function () {
   const query = this.value.toLowerCase();
   const filtered = employeeData.filter(emp =>
@@ -59,7 +55,6 @@ document.getElementById("searchInput").addEventListener("input", function () {
   renderEmployees(filtered);
 });
 
-// Sort
 document.getElementById("sortSelect").addEventListener("change", function () {
   const value = this.value;
   if (!value) return;
@@ -70,13 +65,11 @@ document.getElementById("sortSelect").addEventListener("change", function () {
   renderEmployees(employeeData);
 });
 
-// Show count change
 document.getElementById("showCount").addEventListener("change", function () {
   showCount = parseInt(this.value);
   renderEmployees(employeeData);
 });
 
-// Initial render
 renderEmployees(employeeData);
 
 
