@@ -22,7 +22,6 @@ js/form.js → Form validation
 Running the Project (Freemarker Setup)
 This project uses .ftl (Freemarker) templates. You can run it in any Java-based environment that supports Freemarker, such as:
 A simple Java + Freemarker Maven setup
-Or just simulate the output locally by renaming .ftl to .html and viewing in the browser
 For this project, no backend was used — data is mocked within the templates using <#assign>.
 I tested the .ftl files locally by simulating Freemarker in IntelliJ with static data for UI purposes.
 
